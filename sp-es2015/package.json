@@ -1,0 +1,25 @@
+{
+  "name": "sp-es2015",
+  "version": "1.0.0",
+  "description": "The class files for Speeding Planet's ECMAScript 2015 class",
+  "main": "index.js",
+  "repository": "http://github.com/johnpaxton/sp-es2015",
+  "author": "John Paxton <pax@speedingplanet.com>",
+  "license": "MIT",
+  "scripts": {
+    "server": "http-server -p8000 -c-1"
+  },
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "http-server": "^0.9.0",
+    "webpack": "^2.4.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1",
+    "gulp": "^3.9.1"
+  }
+}

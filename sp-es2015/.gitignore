@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+node_modules/
+yarn.lock
+http.log
+**/out/bundle.js
+**/out/bundle.js.map
+.idea

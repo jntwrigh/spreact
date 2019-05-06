@@ -1,0 +1,7 @@
+{
+  "firstName" : "John",
+  "lastName" : "Paxton",
+  "gender" : "male",
+  "age" : 42,
+  "trainer": true
+}

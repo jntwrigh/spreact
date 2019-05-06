@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+
+.DS_Store
+
+node_modules
+yarn.lock
+**/*.log
+__snapshots__
