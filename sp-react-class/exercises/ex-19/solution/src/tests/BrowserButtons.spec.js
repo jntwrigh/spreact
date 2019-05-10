@@ -22,12 +22,3 @@ test( 'Register a "Next" click', () => {
 
   expect( onNextPrevSpy.callCount ).toBeGreaterThan( 0 );
 } );
-
-test( 'Register a "onBack" click', () => {
-  wrapper.findWhere( e => {
-    return e.text().includes( 'Back' ) && e.is( 'button' );
-  } )
-    .simulate( 'click' );
-
-  expect( onBackSpy.callCount ).toBeGreaterThan( 0 );
-} );

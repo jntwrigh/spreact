@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import React, {Component} from 'react';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
 
 import './css/local.css';
 
 import Navbar from './Navbar';
 import PayeesContainer from './payees/PayeesContainer';
-import CategoriesContainer from './CategoriesContainer';
-import TransactionsContainer from './TransactionsContainer';
+import payeeApp from './payees/payee-reducers';
+
+const store = createStore(
+  payeeApp,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 export default class App extends Component {
   render() {
     return (
-      <Router>
         <section>
           <Navbar/>
-          <Route path="/categories" component={ CategoriesContainer }/>
-          <Route path="/payees" component={ PayeesContainer }/>
-          <Route path="/tx" component={ TransactionsContainer }/>
-          <Route path="/" exact render={ () => <Redirect to="/payees"/> }/>
+          <PayeesContainer/>
         </section>
-      </Router>
     );
   }
 }

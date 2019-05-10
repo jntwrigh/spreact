@@ -1,19 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function Navbar( props ) {
   return (
       <nav className="navbar navbar-default">
         <div className="navbar-header">
-          <Link className="navbar-brand" to="/">Banking</Link>
+          <a className="navbar-brand">Banking</a>
         </div>
         <div className="collapse navbar-collapse">
           <ul className="nav navbar-nav">
-            {/* If you want the "active" class to move to the actually active link, consider
-                looking up the documentation for NavLink */}
-            <li><Link to="/categories">Categories</Link></li>
-            <li className="active"><Link to="/payees">Payees</Link></li>
-            <li><Link to="/tx">Transactions</Link></li>
+            <li className="active"><a>Payees</a></li>
           </ul>
         </div>
       </nav>

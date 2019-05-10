@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import {payeesDAO} from '../../../data/class-data';
+import {payeesDAO} from '../../data/class-data';
 import PayeeDetail from '../PayeeDetail';
 
 let wrapper, payee;

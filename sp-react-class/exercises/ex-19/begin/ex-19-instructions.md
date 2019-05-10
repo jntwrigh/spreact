@@ -1,28 +1,40 @@
 # Exercise 19 Instructions
 ## Objectives
-1) Provide a path to `PayeeEditForm`  
-2) Hook up the form fields in PayeeForm to state updates
-3) Implement the Save and Reset buttons
+1) Create a store to manage PayeeDetail's state
+2) Create action(s) and reducer(s) to interact with the store
+3) Connect the store to PayeeDetail using connect
 
-### Provide a path to PayeeEditForm
-Open the app in your browser. In the `PayeeList` view, you should notice that 
-there is now an 'Edit' button on the right side of each row. Similarly, there is
-an 'Edit' button in each detail view. Clicking on either of these buttons will
-take you to the edit view, loading `PayeeForm` inside `PayeeEditForm`.
 
-### Hook up the form fields in PayeeForm to state updates
-Connect each form field in PayeeForm to the state object so that every change
-in the form field updates the state and vice versa.  
-Consider writing two functions: an adapter function, `handleChange` which knows
-how to get the field name and the value from different form fields (checkboxes, 
-for instance) and `updateState` which is just passed a field name and a value and 
-updates state accordingly. 
+### Create a store to manage PayeeDetail's state
+Open `App.js`.  
+Import `createStore` from redux
+Do __not__ create a store yet. Because you will need a reducer to do that. Go to the next objective. 
 
-### Implement the Save and Reset buttons
-The Reset button should restore the form to its original state.  
-The Save button should call the savePayee event, passing the updated payee.
+### Create action(s) and reducer(s) to interact with the store
+Open `payees/payee-actions.js`. 
 
-### Check your code
-Navigate to http://localhost:3000/ to check your code. You should see a list of payees.
-Choose to edit a payee. Make changes. Click the reset button to check that the payee is
-restored. Make changes again. Click the save button. Verify that the changes have been made. 
+What's the next logical bit of state we have to worry about? Next or previous Payee!
+
+Create a constant, `getNextPrev` which takes the appropriate arguments and returns an action
+with a type of GET_NEXT_PREV_PAYEE and appropriate properties
+
+Open `payees/payee-reducers.js`
+Add a reducer for payees (yes, payees, plural). This should simply get the set of payees from `payeesDAO.list()`
+Add an action case to the payee reducer for GET_NEXT_PREV_PAYEE. The code for this case will calculate
+the appropriate payee to return. If the payee position would be greater or less than the number of payees, 
+block the list at the last or first payee, as appropriate
+
+You will have to use the `payees` reducer to get the set of payees in the first place. Call it with 
+no state (`undefined`) and the same action item
+
+Return to the reducer for `payees` and write a case for GET_NEXT_PREV_PAYEE
+
+Now that you have a reducer, you can go back to `App.js` and import the reducer and add it to the store.
+
+### Connect the store to PayeeDetail using `connect`
+Open `payees/PayeeContainerRedux.js`
+
+Change `mapDispatchToProps` to a dispatcher function which dispatches the current payee
+and the direction to `getNextPrev` from your actions.
+
+### Test out your code!

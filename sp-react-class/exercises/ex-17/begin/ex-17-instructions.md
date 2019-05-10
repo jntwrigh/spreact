@@ -1,23 +1,24 @@
 # Exercise 17 Instructions
 ## Objectives
-1) The default page to load for our application should be Payees  
-2) The default sub-page under Payees should be the list    
+1) Create a store
+2) Initialize the state of the component with the state of the store
+3) Subscribe to the store with a listener which updates component state  
+4) Add a button which dispatches an action to the store 
 
-### The default page to load for our application should be Payees
-Open App.js  
-Add a `<Route>` component which redirects to `/payees` if the url is **exactly** `/`.
+### Create a store
+Create a store via Redux's `createStore` method. 
 
-### The default sub-page under Payees should be the list
-Open `PayeesContainer.js`  
-Note that the code for managing the view has been removed and replaced with 
-a placeholder.  
-Add code for a `/payees/list` URL which loads `PayeesList`.  
-Add a redirect for when the URL is just `/payees` (the presence of a trailing slash
-is immaterial) to redirect to `/payees/list`.  
-Note that after you add the list back, the `PayeeBrowser` will not work. We will fix
-that in the next exercise.
+### Initialize state
+In the `constructor`, initialize the state of the component with the state of the store
 
-### Check your code
-Navigate to http://localhost:3000/ to check your code. You should see a list of payees.
-Remember that clicking on a payee will ***NOT*** bring you to the detail view for the 
-payee.  
+### Subscribe to changes in state
+Add a subscriber to store changes in the `constructor`. When changes are received,
+call `setState` to update the state with the changes.
+
+### Dispatch an action to the store
+Change `toggleActive` to simply dispatch an event to the store, using the 
+`toggleActive` action creator.
+
+### Testing
+Load the application in the browser. You should be able to toggle the active 
+property of a Payee.

@@ -1,28 +1,20 @@
 # Exercise 16 Instructions
 ## Objectives
-1) Note configuration of the Router in our application  
-2) Add Route configuration for "top-level" routing between Payees, Categories, 
-   and other areas of the application  
-3) Update Navbar.js  
+1) Add a reducer called payee
+2) It should check to see which action.type it receives
+3) If it is processing 'TOGGLE_PAYEE_ACTIVE' it should modify the state accordingly
 
-### Note configuration of the Router in our application
-Open App.js  
-Note that there is no routing code in `App.js`.
-Import `BrowserRouter` as Router, and `Route` from `react-router-dom`.  
-Wrap the `<section>` element in the `<Router>` component.  
+### Create a reducer called payee
+In PayeeDetailRedux, create a reducer function called payee. Remember that 
+reducer functions take two arguments, state, and the action.
 
-### Add Route configuration for "top-level" routing
-After the `<NavBar>`, add three routes for categories, payees and transactions. The 
-components should be `CategoriesContainer`, `PayeesContainer`, and `TransactionsContainer`,
-respectively. (`CategoriesContainer` and `TransactionsContainer` have already been 
-provided for you.)  
+What is the state for this action type? The list of payees? An individual payee? 
+Something else?
 
-### Update Navbar.js
-In `Navbar.js`, use the Link component to add links in the Navbar to the Categories
-and Transactions area.  
-Also update the link for Payees to point to the Payees route.  
+### It should check the action.type it receives
+Remember that the action.type we are interested in at the moment is 
+TOGGLE_PAYEE_ACTIVE
 
-### Check your code
-Navigate to http://localhost:3000/ to check your code. You will not see a list of Payees. 
-Click on the "Payees" link in the NavBar and the list of payees should appear.
-Click on the "Categories" and "Transactions" links to test them as well.    
+### Process the action
+If it is processing 'TOGGLE_PAYEE_ACTIVE' it should modify the state accordingly.
+
